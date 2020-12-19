@@ -4,6 +4,7 @@ let productList = [];
 //Selecting products in dom
 const Product_List = document.querySelector(".product-list")
 
+//Creates locally stored products into DOM
 updateDOMFromLocalList();
 
 //Constructor for products
@@ -17,22 +18,11 @@ function Product(id, image, name, description, price){
 
 function addNewProduct(id, image, name, description, price){
     
-    let newProduct = document.createElement("div");
-    newProduct.classList.add("product-card");
-    newProduct.innerHTML =
-    `<div id="${id}" class="product-card">
-    <img class ="product-img" alt="Produktbild">
-    <div class="product-info">
-        <span class="product-name">${name}<span>
-        <span class="product-description">${description}<span>
-        <span class="product-price">${price}<span>
-    </div>
-    <button>Lägg till i kundvagn</button>`;
-
+    //Store product data in productList array
     productList.push(new Product (id, image, name, description, price));
     
+    //Convert from array to store product data locally
     localStorage.setItem("localProductList", JSON.stringify(productList));
-
 }
 
 //Uses data from local productList array to create a DOM counterpart
@@ -58,12 +48,11 @@ function updateDOMFromLocalList(){
         `<div id="${id}" class="product-card">
         <img class ="product-img" alt="Produktbild" src="${image}">
         <div class="product-info">
-
             <span class="product-name">${name}<span>
             <span class="product-description">${description}<span>
             <span class="product-price">${price}<span>
         </div>
-        <button>Lägg till i kundvagn</button>`;
+        <button class="add-cart">Lägg till i kundvagn</button>`;
 
         return newProduct;
     }
@@ -75,5 +64,4 @@ function updateDOMFromLocalList(){
         //Add product to DOM
         newProductList.appendChild(productBluePrint(parsedLocalList[i].id, parsedLocalList[i].image, parsedLocalList[i].name, parsedLocalList[i].description, parsedLocalList[i].price));
     }
-    
 }
