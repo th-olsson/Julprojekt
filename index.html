@@ -7,12 +7,29 @@
     <script src="app.js" defer></script>
     <script src="events.js" defer></script>
     <script src="admin.js" defer></script>
+    <script src="cart.js" defer></script>
 </head>
 <body>
+    <nav>
+        <div class="cart-dropdown-wrapper">
+            <a href="/cart.html">
+                <span class="example-icon">🛒</span>
+                <span class="cart-count">0</span>
+            </a>
+            <div class="cart-dropdown">
+            <ul class="dropdown-content"></ul>
+            </div>
+        </div>
+    </nav>
     <main>
         <div class="product-list">
-
+            
         </div>
     </main>
+    <footer>
+        <p><strong>Kopiera följande i console och uppdatera sedan sidan för att prova exempel på dynamiskt skapade produkter som lagras i localStorage:</strong></p>
+        <p>addNewProduct(37, "https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80", "soppa", "varm flytande mat", 135);</p>
+        </p>addNewProduct(23, "https://images.unsplash.com/photo-1606324159491-671c96b77bbc?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400", "barr", "luktar gott", 75);</p>
+    </footer>
 </body>
 </html>
